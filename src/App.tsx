@@ -57,7 +57,8 @@ export default function App() {
 
   const fetchPokemons = async () => {
     try {
-      const ids = Array.from({ length: limit }, (_, i) => i + 1 + offset);
+      const lastId = Math.min(offset + limit, TOTAL_POKEMONS);
+      const ids = Array.from({ length: lastId - offset }, (_, i) => i + 1 + offset);
       const detailedPokemons: Pokemon[] = await Promise.all(
         ids.map(async (id) => {
           if (pokemonCache.current.has(id)) {
