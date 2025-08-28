@@ -46,7 +46,7 @@ export default function App() {
   const [offset, setOffset] = useState(0);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const limit = 9;
-  const TOTAL_POKEMONS = 1010;
+  const TOTAL_POKEMONS = 1025;
   const totalPages = Math.ceil(TOTAL_POKEMONS / limit);
   const currentPage = Math.floor(offset / limit) + 1;
   const pokemonCache = useRef<Map<number, Pokemon>>(new Map());
